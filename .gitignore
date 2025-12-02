@@ -1,0 +1,12 @@
+# Kafka
+/logs/
+/data/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
