@@ -1,0 +1,11 @@
+# Redis
+dump.rdb
+appendonly.aof
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+.vscode/
