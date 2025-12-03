@@ -106,7 +106,7 @@ CREATE TABLE employee (
     salary DECIMAL(10,2) CHECK (salary > 0.0),
     emp_status ENUM('Active', 'Inactive') DEFAULT 'Active',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP -- tell sql to put current timestamp on updation of row
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, -- tell sql to put current timestamp on updation of row
     CONSTRAINT emp_id_pk PRIMARY KEY (emp_id)
 );
 
@@ -119,6 +119,9 @@ VALUES ('John', 'Doe', 'john.doe@example.com', 50000.00, 'Active'),
 ALTER TABLE employee ADD updated_by VARCHAR(40);
 
 -- Modifying Column updated_by to NOT NULL with default value 'NONE'
+-- But if table have data with update_by as NULL then it will throw error as 'SQL Error [1138] [22001]: Data truncation: Invalid use of NULL value'
+-- so we need to update it first
+UPDATE employee SET updated_by = 'NONE' WHERE updated_by IS NULL;
 ALTER TABLE employee MODIFY updated_by VARCHAR(40) NOT NULL DEFAULT 'NONE';
 
 -- Drop Column updated_by
