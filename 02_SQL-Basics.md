@@ -6,8 +6,21 @@
 
 #### Main Characteristics of SQL Commands:
 1. **Data Definition Language (DDL):** It provides commands to define the structure of a data base. [Table Level/Schema Level/Database Level]
+    - **CREATE:** It creates new database, table, index, view, etc.
+    - **ALTER:** It modifies existing database, table, index, view, etc.
+    - **DROP:** It deletes existing database, table, index, view, etc.
+    - **TRUNCATE:** It removes all data from a table.
+    - **RENAME:** It renames a table.
+    - **SHOW:** It displays information about database, table, index, view, etc.
+    - **DESCRIBE:** It displays information about table.
 2. **Data Manipulation Language (DML):** It provides commands to let you insert, update, delete and retrieve data within the database. [Data]
+    - **SELECT:** It retrieves data from a database.
+    - **INSERT:** It inserts new data into a table.
+    - **UPDATE:** It updates existing data in a table.
+    - **DELETE:** It deletes existing data from a table.
 3. **Data Control Language (DCL):** It provides commands to control access to data in a database.[Rights/Permissions]
+    - **GRANT:** It grants permissions to a user or role.
+    - **REVOKE:** It revokes permissions from a user or role.
 4. **Transaction Control Language (TCL):** It provides commands to manage transactions within a database, ensuring data integrity and consistency.
     - **COMMIT:** save all changes made during current transaction.
     - **ROLLBACK:** undo all changes made during current transaction.

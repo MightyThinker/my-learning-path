@@ -29,5 +29,5 @@
 
 ### Relational Model
 1. **Data Integrity:** It means no orphaned record exists and it can be achieved using primary key and foreign key.
-2. **Reduced Redundancy:** It minimized duplication. It ensures consistent data. It can be achieved using normalization.
+2. **Reduced Redundancy:** It minimizes duplication. It ensures consistent data. It can be achieved using normalization.
 3. **Flexibility in Query:** It provides declarative way to retrieve and manipulate data without changing design.
