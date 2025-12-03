@@ -5,8 +5,8 @@ This branch contains my learning progress and scripts related to MySQL.
 ## Topics
 - [X] Database and Table Design (CREATE, ALTER, DROP)
 - [X] Data Types and Constraints
-- [-] Basic Queries (SELECT, INSERT, UPDATE, DELETE)
-- [-] Filtering (WHERE, IN, BETWEEN, LIKE, CASE)
+- [ ] Basic Queries (SELECT, INSERT, UPDATE, DELETE)
+- [ ] Filtering (WHERE, IN, BETWEEN, LIKE, CASE)
 - [ ] JOINS (INNER, LEFT, RIGHT, FULL)
 - [ ] Aggregation (GROUP BY, HAVING, COUNT, SUM, MAX, MIN, AVG)
 - [ ] Subqueries and Nested SELECTs
