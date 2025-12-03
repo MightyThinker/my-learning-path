@@ -34,3 +34,22 @@
     -- To drop a database if it exists we use below command:
     DROP DATABASE IF EXISTS db_name;
     ```
+## Sample Code:
+
+```sql
+-- Create a database named 'learning'
+CREATE DATABASE IF NOT EXISTS learning;
+
+-- Get list of databases
+SHOW DATABASES;
+
+-- select database to work with
+USE learning;
+
+-- get current working database
+SELECT DATABASE();
+
+-- drop database
+DROP DATABASE IF EXISTS learning;
+
+```
