@@ -160,7 +160,7 @@ CREATE TABLE event_schedule (
     - **LONGBLOB:**
         - storage is 4 GB.
         - used to store files.
-> **NOTE:** *LOAD_FILE(path)* is used to insert file from filesystem in table as *blob*.
+> **NOTE:** *LOAD_FILE(path)* is used to insert file from filesystem in table as *blob*. *BLOB* is acronym for *Binary Large Object*.
 
 ```sql
 CREATE TABLE file_storage (
