@@ -1,5 +1,6 @@
-# MySQL Select Command
+# MySQL: SELECT, ALIAS, DISTINCT
 
+## SELECT
 - used to retrieve data in MySQL
 - reserved keyword
 - For selected columns we give column names separated by comma
@@ -39,6 +40,45 @@ SELECT col1 AS alias1, col2 AS alias2 FROM table_name;
     8. **LIMIT:**
         - limit the number of rows returned
 
+## ALIAS
+- temporary names assigned to database tables, columns or expressions to make them readable or manageable.
+- it is used in `JOIN` operation by giving table alias, subqueries, `CASE` expression, functions, etc.
+- we use `AS` keyword to alias and some DB like Oracle do not support `AS` keyword.
+- using `AS` is optional in case of table alias in `JOIN`.
+```sql
+-- Column alias
+SELECT col1 AS alias1, col2 AS alias2 FROM table_name;
+
+-- Table alias
+SELECT t1.column_name FROM table_name t1;
+
+-- Join Operation alias
+SELECT t1.column_name FROM table_name t1 JOIN table_name t2 ON t1.id = t2.id;
+
+-- Subquery alias
+SELECT (SELECT column_name FROM table_name) AS alias FROM table_name;
+
+-- CASE expression alias
+SELECT 
+    CASE
+        WHEN condition THEN result
+        ELSE result
+    END AS alias
+FROM table_name;
+```
+- Aliasing can shorten or rename columns or expressions to make them more readable or manageable.
+
+## DISTINCT
+- it is used to remove duplicates from result set.
+- it is used before *column_name* or *expression* in `SELECT`.
+- it get applied to combination of entire row of selected columns and not individual columns.
+```sql
+SELECT DISTINCT col1, col2, ..., colN FROM table_name;
+```
+- `NULL` values are treated unique by `DISTINCT` and if multiple `NULL` values are there then result set will have only 1 `NULL`.
+- if database is large and indexing is not available then we need optimization as there will be performance issues.
+
+
 ## Sample Code
 ```sql
 -- Create Table employee
@@ -65,11 +105,11 @@ VALUES ('John', 'Doe', 'john.doe@example.com', 'IT', 50000.00, 'Active'),
 -- Select Everything from Employee Table
 SELECT * FROM employee;
 
--- Display full name for employe as FULL_NAME
+-- Display full name for employe as FULL_NAME alias
 SELECT fname || ' ' || lname AS FULL_NAME FROM employee;
 SELECT CONCAT(fname, ' ', lname) AS FULL_NAME FROM employee;
 
--- Display department available and no duplicates
+-- Display unique department available
 SELECT DISTINCT department FROM employee;
 
 -- Get IT department employees with salaey in reverse sorted order
@@ -80,4 +120,20 @@ SELECT emp_id, fname, lname, salary, salary * 1.10 AS INCREMENTED_SALARY FROM em
 
 -- Get employees whose salary is greater than average salary
 SELECT * FROM employee WHERE salary > (SELECT AVG(salary) FROM employee);
+
+-- case example
+SELECT 
+    emp_id,
+    fname,
+    lname,
+    salary,
+    CASE
+        WHEN salary > (SELECT AVG(salary) FROM employee) THEN 'High'
+        WHEN salary < (SELECT AVG(salary) FROM employee) THEN 'Low'
+        ELSE 'Medium'
+    END AS salary_level
+FROM employee;
+
+-- Subquery alias
+SELECT t.avg_sal FROM (SELECT AVG(salary) AS avg_sal FROM employee) t;
 ```
