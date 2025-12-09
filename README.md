@@ -12,7 +12,7 @@ This branch contains my learning progress and scripts related to MySQL.
 - [ ] Subqueries and Nested SELECTs
 - [ ] Indexing and Performance Tuning
 - [ ] Transactions (COMMIT, ROLLBACK, SAVEPOINT)
-- [ ] Normalization and Schema Design
+- [X] Normalization and Schema Design
 - [ ] Views, Stored Procedures, Triggers
 - [ ] Backup and Restore (mysqldump, command line)
 - [ ] User Management (GRANT, REVOKE)
